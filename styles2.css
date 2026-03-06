@@ -1,0 +1,83 @@
+.contact-details{
+    text-align: center;
+    padding-top: 100px;
+    text-decoration: underline;
+}
+
+.contact-info{
+    padding-top: 100px;
+    padding-left: 100px;
+}
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list .list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info-list .list i {
+  font-size: 25px;
+  color: #8b4513;
+  margin-right: 12px;
+  min-width: 24px; 
+}
+
+
+.info-list .list p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+
+.form {
+ position: fixed;
+  top: 100px;       
+  right: 20px;       
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  margin-top: 100px;
+  margin-right: 300px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999; 
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form button.submit {
+  background-color: #8b4513;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button.submit:hover {
+  background-color: #5e2c0d;
+}

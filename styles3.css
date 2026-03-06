@@ -1,0 +1,44 @@
+.gallery {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gal-title {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    padding-top: 100px;
+}
+
+.gal-image,
+.gal-img {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    width: 90vw;
+    height: 40vh;
+    gap: 5px;
+    padding-top: 40px;
+    justify-items: center;
+    align-items: center;
+}
+
+.gal-image img,
+.gal-img img {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gal-image img:hover,
+.gal-img img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

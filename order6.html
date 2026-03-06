@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Coffee House</title>
+    <style>
+        .button{
+            text-decoration: none;
+            padding-bottom: 500px;
+        }
+        .about { 
+            display: flex;
+            align-items: center;         
+            padding-left: 50px;
+            background-color: #fafafa;  
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .image .img {
+            width: 400px;
+            height: 400px;
+            margin-top: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #8b4513;  
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-details {
+            max-width: 600px;
+            padding-left: 200px;
+        }
+
+        .about-details h2 {
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #4b2e2e;
+            padding-right: 100px;
+        }
+
+        .about-details p {
+            font-size: 18px;
+            line-height: 1.6;
+            padding-right: 100px;
+            color: #333;
+        }
+        .confirm-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .confirm-btn:hover {
+            background-color: #a0522d;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <section class="about">
+            <a href="menu.html" class="button">Menu</a>
+            <div class="about-content">
+                <div class="image">
+                    <img src="order6.png" alt="about" class="img" />
+                </div>
+                <div class="about-details">
+                    <h2>SPECIAL COMBO..!</h2>
+                    <form action="submit_order.php" method="post">
+                        <label for="coffee">Choose your Combos:</label><br>
+                        <select id="coffee" name="coffee" required>
+                            <option>-- Select a Combos --</option>
+                            <option>(Veg Burger + Classic Fries + Soft Drink) - ₹220</option>
+                            <option>(Cheesse Sandwich + Peri Peri Fries + Cold Coffee)- ₹250</option>
+                            <option>(Grilled Veg Wrap + Fresh juice + Fruit Salad) - ₹270</option>
+                            <option>(Veg Puff + Cold Coffee + Cookie) - ₹180</option>
+                        </select><br><br>
+                        
+                        <label>Quantity:</label><br>
+                        <div class="quantity-container">
+                            <button type="button" class="quantity-btn" onclick="decreaseQuantity()">−</button>
+                            <input type="text" id="quantity" name="quantity" class="quantity-input" value="1" readonly>
+                            <button type="button" class="quantity-btn" onclick="increaseQuantity()">+</button>
+                        </div><br>
+                    </form>
+                    <button type="button" onclick="calculatePrice()">AMOUNT</button>
+                    <p id="total-amount" style="font-size: 20px; font-weight: bold; color: #8b4513; margin-top: 10px;"></p>
+
+                    <script>
+                        function increaseQuantity() {
+                        const qtyInput = document.getElementById('quantity');
+                        let qty = parseInt(qtyInput.value);
+                        qtyInput.value = qty + 1;
+                        }
+
+                        function decreaseQuantity() {
+                            const qtyInput = document.getElementById('quantity');
+                            let qty = parseInt(qtyInput.value);
+                            if (qty > 1) {
+                                qtyInput.value = qty - 1;
+                            }
+                        }
+
+                        function calculatePrice() {
+                            const coffeeSelect = document.getElementById('coffee');
+                            const quantity = parseInt(document.getElementById('quantity').value);
+                            const coffeeText = coffeeSelect.value;
+                            let price = 0;
+
+                            if (coffeeText.includes('₹180')) {
+                                price = 180;
+                            } else if (coffeeText.includes('₹220')) {
+                                price = 220;
+                            } else if (coffeeText.includes('₹250')) {
+                                price = 250;
+                            } else if (coffeeText.includes('₹270')) {
+                                price = 270;
+                            } else {
+                                document.getElementById('total-amount').innerText = "Please select a coffee.";
+                                return;
+                            }
+
+                            const total = price * quantity;
+                            document.getElementById('total-amount').innerText = `Total Amount for ${quantity} ${coffeeText.split(' -')[0]}(s): ₹${total}`;
+                        }
+                    </script>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+<button class="confirm-btn">Confirm Order</button>
+</body>
+</html>
